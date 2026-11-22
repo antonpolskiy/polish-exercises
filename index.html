@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f3ed">
-  <title>Ćwiczenie odmiany czasowników</title>
+  <title>Ćwiczenia z języka polskiego</title>
   <style>
     :root {
       color-scheme: light;
@@ -15,8 +15,6 @@
       --line: #e6e2d9;
       --green: #17684d;
       --green-soft: #e9f5ee;
-      --red: #b33a35;
-      --red-soft: #fff0ed;
       --accent: #d3523e;
     }
 
@@ -46,606 +44,114 @@
       text-transform: uppercase;
     }
 
-    h1 {
+    h1, h2 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 7vw, 3.5rem);
       font-weight: 600;
-      letter-spacing: -.045em;
-      line-height: 1.1;
+      letter-spacing: -.035em;
+      line-height: 1.15;
     }
 
+    h1 { font-size: clamp(2.2rem, 7vw, 3.5rem); }
+
     .intro {
-      margin: 12px 0 28px;
+      max-width: 600px;
+      margin: 12px 0 30px;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
-    .verb-card, .exercise-card {
+    .exercise-card {
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 18px;
       background: var(--paper);
       box-shadow: 0 12px 32px rgb(52 43 29 / 5%);
     }
 
-    .verb-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 22px 26px;
-    }
+    .exercise-card + .exercise-card { margin-top: 16px; }
 
-    .verb-label, .meaning {
-      display: block;
+    h2 { font-size: 1.65rem; }
+
+    .description {
+      margin: 8px 0 20px;
       color: var(--muted);
-      font-size: .83rem;
     }
 
-    .verb {
-      margin: 2px 0 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2rem;
-      font-weight: 600;
-    }
-
-    .meaning { margin-top: 1px; }
-
-    .tense-badge {
-      flex: 0 0 auto;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: var(--green);
-      font-size: .88rem;
-      font-weight: 750;
-    }
-
-    button, input { font: inherit; }
-
-    .exercise-card {
-      margin-top: 18px;
-      padding: 24px 26px 26px;
-    }
-
-    .instructions {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .rows { display: grid; gap: 8px; }
-
-    .row {
+    .levels {
       display: grid;
-      grid-template-columns: minmax(100px, 1fr) minmax(210px, 1.4fr) minmax(90px, .7fr);
-      align-items: center;
-      gap: 14px;
-      min-height: 58px;
-      padding: 8px 12px;
-      border: 1px solid transparent;
-      border-radius: 11px;
-      transition: background .15s, border-color .15s;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .row:nth-child(odd) { background: #f8f7f3; }
-    .pronoun { font-weight: 650; }
-
-    .answer {
+    .level-link {
       display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .stem, .suffix {
-      color: var(--muted);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.15rem;
-    }
-
-    .suffix { white-space: nowrap; }
-
-    .ending {
-      width: 100%;
-      min-width: 74px;
-      max-width: 180px;
-      padding: 8px 10px;
-      border: 1px solid #d6d3ca;
-      border-radius: 8px;
-      outline: none;
+      min-height: 82px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
       background: white;
       color: var(--ink);
+      text-decoration: none;
+      transition: border-color .15s, background .15s, transform .15s;
     }
 
-    .ending:focus, button:focus-visible {
+    .level-link:hover {
+      transform: translateY(-2px);
       border-color: var(--green);
-      outline: 3px solid rgb(23 104 77 / 17%);
-      outline-offset: 1px;
-    }
-
-    .row-result {
-      min-height: 1.4em;
-      color: var(--muted);
-      font-size: .82rem;
-    }
-
-    .row.correct {
-      border-color: #c6e4d1;
       background: var(--green-soft);
     }
 
-    .row.incorrect {
-      border-color: #f0c9c4;
-      background: var(--red-soft);
-    }
+    .level-name { font-weight: 750; }
+    .level-description { color: var(--muted); font-size: .88rem; }
 
-    .row.correct .row-result { color: var(--green); }
-    .row.incorrect .row-result { color: var(--red); }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    button {
-      min-height: 44px;
-      padding: 10px 17px;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .check-button { background: var(--green); color: white; }
-    .check-button:hover { background: #11573f; }
-    .secondary-button { border-color: var(--line); background: white; color: var(--ink); }
-    .secondary-button:hover { background: #f8f7f3; }
-
-    .summary {
-      flex: 1 1 100%;
-      min-height: 1.5em;
-      margin: 2px 0 0;
+    .coming-soon {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f3f0e9;
+      color: var(--muted);
+      font-size: .82rem;
       font-weight: 700;
     }
 
-    .summary.success { color: var(--green); }
-    .summary.needs-work { color: var(--red); }
-
-    @media (max-width: 560px) {
+    @media (max-width: 480px) {
       main { padding-top: 32px; }
-      .verb-card { align-items: flex-start; flex-wrap: wrap; padding: 20px; }
-      .exercise-card { padding: 20px 14px; }
-      .row {
-        grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr);
-        gap: 8px;
-        padding: 8px;
-      }
-      .pronoun { min-width: 0; overflow-wrap: anywhere; }
-      .answer { min-width: 0; flex-wrap: wrap; white-space: normal; }
-      .stem { overflow-wrap: anywhere; }
-      .suffix { white-space: normal; overflow-wrap: anywhere; }
-      .ending {
-        flex: 0 1 8ch;
-        width: 8ch;
-        min-width: 56px;
-        max-width: 100%;
-        padding: 8px;
-      }
-      .row-result { grid-column: 2; }
-      .verb { overflow-wrap: anywhere; }
-    }
-
-    @media (max-width: 360px) {
-      main { width: min(100% - 24px, 760px); }
-      .row { grid-template-columns: minmax(0, 1fr); }
-      .answer, .row-result { grid-column: 1; }
-      .stem, .suffix { font-size: 1rem; }
-      .ending { flex-basis: 7ch; width: 7ch; }
+      .exercise-card { padding: 20px; }
+      .levels { grid-template-columns: 1fr; gap: 8px; }
+      .level-link { min-height: 68px; }
     }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow" id="tense-eyebrow">Polski · ćwiczenie losowe</p>
-    <h1>Odmiana czasowników</h1>
-    <p class="intro">Ćwicz czas teraźniejszy, przeszły i przyszły na czasownikach z poziomu B1–B2. Uzupełnij formę, sprawdź odpowiedzi, a potem przejdź do kolejnego losowego czasownika i czasu.</p>
+    <p class="eyebrow">Język polski · ćwiczenia</p>
+    <h1>Wybierz ćwiczenie</h1>
+    <p class="intro">Ćwicz gramatykę krok po kroku. Wybierz temat i poziom trudności — kolejne rodzaje ćwiczeń pojawią się tutaj.</p>
 
-    <section class="verb-card" aria-labelledby="verb-name">
-      <div>
-        <span class="verb-label">Odmień czasownik</span>
-        <h2 class="verb" id="verb-name">czytać</h2>
-        <span class="meaning" id="verb-meaning">odczytywać tekst</span>
+    <section class="exercise-card" aria-labelledby="verbs-title">
+      <h2 id="verbs-title">Odmiana czasowników</h2>
+      <p class="description">Ćwicz czas teraźniejszy, przeszły i przyszły.</p>
+      <div class="levels" aria-label="Wybierz poziom trudności">
+        <a class="level-link" href="odmiana.html?level=easy">
+          <span class="level-name">Łatwy</span>
+          <span class="level-description">Jeden czasownik, czas i osoba</span>
+        </a>
+        <a class="level-link" href="odmiana.html?level=hard">
+          <span class="level-name">Trudny</span>
+          <span class="level-description">Uzupełnij zdanie pełną formą</span>
+        </a>
       </div>
-      <span class="tense-badge" id="tense-name">Czas teraźniejszy</span>
     </section>
 
-    <section class="exercise-card" aria-label="Ćwiczenie odmiany czasowników">
-      <p class="instructions" id="instructions">Wpisz końcówkę po podanym temacie czasownika.</p>
-      <p class="round-status" id="round-status" aria-live="polite"></p>
-      <form id="exercise-form">
-        <div class="rows" id="answer-rows"></div>
-        <div class="actions">
-          <button class="check-button" type="submit">Sprawdź odpowiedzi</button>
-          <button class="secondary-button" type="button" id="clear-button">Wyczyść</button>
-          <p class="summary" id="summary" aria-live="polite"></p>
-        </div>
-      </form>
+    <section class="exercise-card" aria-labelledby="more-title">
+      <h2 id="more-title">Więcej ćwiczeń</h2>
+      <p class="description">Nowe tematy i zadania będą dodawane w przyszłości.</p>
+      <span class="coming-soon">Wkrótce</span>
     </section>
   </main>
-
-  <script>
-    const presentClasses = {
-      am: ["am", "asz", "a", "amy", "acie", "ają"],
-      i: ["ę", "isz", "i", "imy", "icie", "ią"],
-      ię: ["ię", "isz", "i", "imy", "icie", "ią"],
-      ą: ["ę", "isz", "i", "imy", "icie", "ą"],
-      y: ["ę", "ysz", "y", "ymy", "ycie", "ą"],
-      uj: ["ę", "esz", "e", "emy", "ecie", "ą"],
-      j: ["ę", "esz", "e", "emy", "ecie", "ą"],
-      sz: ["ę", "esz", "e", "emy", "ecie", "ą"]
-    };
-    const pastVowelsIaIe = [
-      "ia", "ia", "ia", "ia", "ia", "ia", "ia",
-      "ie", "ia", "ie", "ia", "ie", "ia"
-    ];
-    const pastVowelsAie = [
-      "a", "a", "a", "a", "a", "a", "a",
-      "e", "a", "e", "a", "e", "a"
-    ];
-
-    function defineVerb(infinitive, meaning, presentStem, presentClass, pastRoot, pastVowel, extra = {}) {
-      return {
-        infinitive,
-        meaning,
-        presentStem,
-        presentEndings: presentClasses[presentClass],
-        pastRoot,
-        pastVowel,
-        ...extra
-      };
-    }
-
-    const verbs = [
-      defineVerb("czytać", "odczytywać tekst", "czyt", "am", "czyta", ""),
-      defineVerb("mówić", "porozumiewać się za pomocą słów", "mów", "i", "mów", "i"),
-      defineVerb("robić", "wykonywać lub tworzyć", "rob", "ię", "rob", "i"),
-      defineVerb("pracować", "wykonywać pracę", "pracuj", "uj", "pracow", "a"),
-      defineVerb("być", "istnieć lub znajdować się", "jest", "custom", "by", "", {
-        presentEndings: ["em", "eś", "", "eśmy", "eście", "ą"],
-        presentStems: ["jest", "jest", "jest", "jest", "jest", "s"],
-        futureInfinitive: ""
-      }),
-      defineVerb("mieć", "posiadać", "ma", "custom", "m", "", {
-        presentEndings: ["m", "sz", "", "my", "cie", "ją"],
-        pastVowels: pastVowelsIaIe
-      }),
-      defineVerb("iść", "przemieszczać się pieszo", "id", "custom", "sz", "", {
-        presentEndings: ["ę", "ziesz", "zie", "ziemy", "ziecie", "ą"],
-        pastStems: ["szed", "sz", "szed", "sz", "szed", "sz", "sz", "sz", "sz", "sz", "sz", "sz", "sz"]
-      }),
-      defineVerb("brać", "chwytać lub przyjmować", "bior", "custom", "bra", "", {
-        presentStems: ["bior", "bier", "bier", "bier", "bier", "bior"],
-        presentEndings: ["ę", "zesz", "ze", "zemy", "zecie", "ą"]
-      }),
-      defineVerb("stać", "pozostawać w pozycji pionowej", "stoj", "custom", "sta", "", {
-        presentStems: ["stoj", "sto", "sto", "sto", "sto", "stoj"],
-        presentEndings: ["ę", "isz", "i", "imy", "icie", "ą"]
-      }),
-
-      defineVerb("mieszkać", "mieć gdzieś swoje miejsce zamieszkania", "mieszk", "am", "mieszka", ""),
-      defineVerb("czekać", "pozostawać w oczekiwaniu", "czek", "am", "czeka", ""),
-      defineVerb("szukać", "próbować coś znaleźć", "szuk", "am", "szuka", ""),
-      defineVerb("słuchać", "odbierać dźwięki lub czyjeś słowa", "słuch", "am", "słucha", ""),
-      defineVerb("oglądać", "patrzeć na coś", "ogląd", "am", "ogląda", ""),
-      defineVerb("spotykać", "natrafiać na kogoś lub coś", "spotyk", "am", "spotyka", ""),
-      defineVerb("pamiętać", "zachowywać coś w pamięci", "pamięt", "am", "pamięta", ""),
-      defineVerb("pomagać", "ułatwiać komuś wykonanie czegoś", "pomag", "am", "pomaga", ""),
-      defineVerb("pytać", "prosić o informację", "pyt", "am", "pyta", ""),
-      defineVerb("kochać", "darzyć kogoś miłością", "koch", "am", "kocha", ""),
-      defineVerb("znać", "mieć o kimś lub o czymś wiedzę", "zn", "am", "zna", ""),
-      defineVerb("grać", "uczestniczyć w grze lub grać na instrumencie", "gr", "am", "gra", ""),
-      defineVerb("wracać", "przychodzić lub przyjeżdżać z powrotem", "wrac", "am", "wraca", ""),
-      defineVerb("zaczynać", "rozpoczynać coś", "zaczyn", "am", "zaczyna", ""),
-      defineVerb("wybierać", "decydować się na jedną z możliwości", "wybier", "am", "wybiera", ""),
-      defineVerb("odpowiadać", "udzielać odpowiedzi", "odpowiad", "am", "odpowiada", ""),
-      defineVerb("opowiadać", "przedstawiać wydarzenia słowami", "opowiad", "am", "opowiada", ""),
-      defineVerb("rozmawiać", "prowadzić rozmowę", "rozmaw", "am", "rozmaw", "ia", {
-        pastVowels: Array(13).fill("ia")
-      }),
-      defineVerb("zamawiać", "prosić o przygotowanie lub dostarczenie czegoś", "zamaw", "am", "zamawia", ""),
-      defineVerb("odwiedzać", "przychodzić do kogoś z wizytą", "odwiedz", "am", "odwiedza", ""),
-      defineVerb("sprawdzać", "kontrolować poprawność lub stan czegoś", "sprawdz", "am", "sprawdza", ""),
-      defineVerb("otwierać", "powodować, że coś przestaje być zamknięte", "otwier", "am", "otwiera", ""),
-      defineVerb("pływać", "poruszać się w wodzie", "pływ", "am", "pływa", ""),
-      defineVerb("sprzątać", "czyścić i porządkować pomieszczenie", "sprząt", "am", "sprząta", ""),
-      defineVerb("przepraszać", "wyrażać żal za swoje zachowanie", "przeprasz", "am", "przeprasza", ""),
-      defineVerb("zapominać", "przestawać pamiętać o czymś", "zapomin", "am", "zapomina", ""),
-      defineVerb("przypominać", "przywoływać coś w pamięci", "przypomin", "am", "przypomina", ""),
-      defineVerb("ubierać", "zakładać ubranie sobie lub komuś", "ubier", "am", "ubiera", ""),
-      defineVerb("wymieniać", "zastępować jedną rzecz inną", "wymien", "am", "wymienia", ""),
-      defineVerb("nazywać się", "mieć określone imię lub nazwę", "nazyw", "am", "nazywa", "", { particle: " się" }),
-      defineVerb("spotykać się", "spędzać czas z innymi osobami", "spotyk", "am", "spotyka", "", { particle: " się" }),
-      defineVerb("zostawiać", "pozostawiać coś w jakimś miejscu", "zostaw", "am", "zostawia", ""),
-      defineVerb("wyglądać", "mieć określony wygląd", "wygląd", "am", "wygląda", ""),
-      defineVerb("pisać", "zapisywać słowa lub tekst", "pisz", "sz", "pisa", ""),
-      defineVerb("lubić", "odczuwać sympatię do kogoś lub czegoś", "lub", "ię", "lub", "i"),
-      defineVerb("chodzić", "przemieszczać się pieszo lub bywać gdzieś", "chodz", "ą", "chodz", "i"),
-      defineVerb("wychodzić", "opuszczać jakieś miejsce", "wychodz", "ą", "wychodz", "i"),
-      defineVerb("przychodzić", "docierać pieszo do jakiegoś miejsca", "przychodz", "ą", "przychodz", "i"),
-      defineVerb("wchodzić", "przemieszczać się do środka", "wchodz", "ą", "wchodz", "i"),
-      defineVerb("odchodzić", "oddalać się od jakiegoś miejsca", "odchodz", "ą", "odchodz", "i"),
-      defineVerb("płacić", "przekazywać pieniądze za coś", "płac", "ą", "płac", "i"),
-      defineVerb("kończyć", "doprowadzać coś do końca", "kończ", "y", "kończ", "y"),
-      defineVerb("uczyć", "przekazywać komuś wiedzę lub umiejętności", "ucz", "y", "ucz", "y"),
-      defineVerb("liczyć", "ustalać liczbę lub wykonywać obliczenia", "licz", "y", "licz", "y"),
-      defineVerb("ćwiczyć", "trenować lub powtarzać umiejętność", "ćwicz", "y", "ćwicz", "y"),
-      defineVerb("tłumaczyć", "przekładać tekst na inny język", "tłumacz", "y", "tłumacz", "y"),
-      defineVerb("myśleć", "używać umysłu lub mieć opinię", "myśl", "ą", "myśl", "ia", {
-        pastVowels: pastVowelsIaIe
-      }),
-      defineVerb("widzieć", "odbierać obrazy za pomocą wzroku", "widz", "ą", "widz", "ia", {
-        pastVowels: pastVowelsIaIe
-      }),
-      defineVerb("nosić", "mieć coś na sobie lub przenosić", "nos", "ą", "nos", "i", {
-        presentStems: ["nosz", "nos", "nos", "nos", "nos", "nosz"]
-      }),
-      defineVerb("prosić", "zwracać się do kogoś z prośbą", "pros", "ą", "pros", "i", {
-        presentStems: ["prosz", "pros", "pros", "pros", "pros", "prosz"]
-      }),
-      defineVerb("wierzyć", "uważać coś za prawdziwe", "wierz", "y", "wier", "y"),
-      defineVerb("cieszyć się", "odczuwać radość", "ciesz", "y", "ciesz", "y", { particle: " się" }),
-      defineVerb("uczyć się", "zdobywać wiedzę lub umiejętności", "ucz", "y", "ucz", "y", { particle: " się" }),
-      defineVerb("tłumaczyć się", "wyjaśniać swoje zachowanie", "tłumacz", "y", "tłumacz", "y", { particle: " się" }),
-      defineVerb("bać się", "odczuwać strach", "boj", "custom", "ba", "", {
-        presentStems: ["boj", "bo", "bo", "bo", "bo", "boj"],
-        presentEndings: ["ę", "isz", "i", "imy", "icie", "ą"],
-        particle: " się"
-      }),
-
-      defineVerb("kupować", "nabywać coś za pieniądze", "kupuj", "uj", "kupow", "a"),
-      defineVerb("gotować", "przygotowywać jedzenie", "gotuj", "uj", "gotow", "a"),
-      defineVerb("planować", "ustalać, co i kiedy się zrobi", "planuj", "uj", "planow", "a"),
-      defineVerb("próbować", "podejmować próbę zrobienia czegoś", "próbuj", "uj", "próbow", "a"),
-      defineVerb("organizować", "planować i przygotowywać wydarzenie", "organizuj", "uj", "organizow", "a"),
-      defineVerb("podróżować", "przemieszczać się na dalsze odległości", "podróżuj", "uj", "podróżow", "a"),
-      defineVerb("studiować", "uczyć się na uczelni wyższej", "studiuj", "uj", "studiow", "a"),
-      defineVerb("rezerwować", "wcześniej zapewniać sobie miejsce lub usługę", "rezerwuj", "uj", "rezerw", "a"),
-      defineVerb("decydować", "wybierać jedną z możliwości", "decyduj", "uj", "decydow", "a"),
-      defineVerb("dziękować", "wyrażać wdzięczność", "dziękuj", "uj", "dziękow", "a"),
-      defineVerb("trenować", "regularnie ćwiczyć sport lub umiejętność", "trenuj", "uj", "trenow", "a"),
-      defineVerb("malować", "nakładać farbę lub tworzyć obraz", "maluj", "uj", "malow", "a"),
-      defineVerb("rysować", "tworzyć obraz za pomocą linii", "rysuj", "uj", "rysow", "a"),
-      defineVerb("budować", "wznosić budynek lub tworzyć konstrukcję", "buduj", "uj", "budow", "a"),
-      defineVerb("proponować", "przedstawiać pomysł do rozważenia", "proponuj", "uj", "proponow", "a"),
-      defineVerb("gratulować", "składać komuś życzenia z powodu sukcesu", "gratuluj", "uj", "gratulow", "a"),
-      defineVerb("ratować", "chronić kogoś przed niebezpieczeństwem", "ratuj", "uj", "ratow", "a"),
-      defineVerb("przygotowywać", "sprawiać, że coś jest gotowe", "przygotowuj", "uj", "przygotowyw", "a"),
-      defineVerb("wykorzystywać", "używać czegoś w określonym celu", "wykorzystuj", "uj", "wykorzystyw", "a"),
-      defineVerb("opiekować się", "troszczyć się o kogoś lub o coś", "opiek", "custom", "opiek", "owa", {
-        presentEndings: ["uję", "ujesz", "uje", "ujemy", "ujecie", "ują"],
-        particle: " się"
-      }),
-      defineVerb("zajmować się", "poświęcać czas określonej czynności", "zajmuj", "uj", "zajmow", "a", { particle: " się" }),
-      defineVerb("interesować się", "odczuwać ciekawość wobec czegoś", "interesuj", "uj", "interesow", "a", { particle: " się" }),
-      defineVerb("spóźniać się", "przychodzić lub przyjeżdżać za późno", "spóźni", "am", "spóźnia", "", { particle: " się" }),
-      defineVerb("dostawać", "otrzymywać coś", "dostaj", "j", "dostawa", ""),
-      defineVerb("dawać", "przekazywać coś komuś", "daj", "j", "dawa", ""),
-      defineVerb("poznawać", "dowiedzieć się czegoś lub spotkać kogoś", "poznaj", "j", "poznawa", ""),
-      defineVerb("zostawać", "pozostawać w jakimś miejscu lub stanie", "zostaj", "j", "zostawa", ""),
-      defineVerb("dodawać", "łączyć coś z czymś lub zwiększać ilość", "dodaj", "j", "dodawa", ""),
-      defineVerb("podawać", "przekazywać coś komuś", "podaj", "j", "podawa", ""),
-      defineVerb("używać", "posługiwać się czymś", "używ", "am", "używa", ""),
-      defineVerb("przeprowadzać", "organizować lub wykonywać coś", "przeprowadz", "am", "przeprowadza", ""),
-      defineVerb("prowadzić", "kierować czymś lub pokazywać drogę", "prowadz", "ą", "prowadz", "i"),
-      defineVerb("uczestniczyć", "brać udział w jakimś wydarzeniu", "uczestnicz", "y", "uczestnicz", "y"),
-      defineVerb("znaczyć", "mieć określone znaczenie", "znacz", "y", "znacz", "y"),
-      defineVerb("wydawać", "publikować lub przekazywać coś", "wydaj", "j", "wydawa", ""),
-      defineVerb("otrzymywać", "dostawać coś od kogoś", "otrzymuj", "uj", "otrzymyw", "a"),
-      defineVerb("wypożyczać", "pożyczać coś na określony czas", "wypożycz", "am", "wypożycza", ""),
-      defineVerb("zapraszać", "prosić kogoś o przybycie", "zaprasz", "am", "zaprasza", ""),
-      defineVerb("spędzać", "poświęcać czas na jakąś czynność", "spędz", "am", "spędza", ""),
-      defineVerb("zachowywać", "postępować w określony sposób lub coś zatrzymywać", "zachowuj", "uj", "zachowyw", "a"),
-      defineVerb("rozwijać", "powiększać lub doskonalić coś", "rozwij", "am", "rozwija", ""),
-      defineVerb("naprawiać", "przywracać coś do dobrego stanu", "napraw", "am", "naprawia", ""),
-      defineVerb("pokazywać", "sprawiać, że ktoś coś widzi", "pokazuj", "uj", "pokazyw", "a"),
-      defineVerb("stosować", "używać określonej metody lub zasady", "stosuj", "uj", "stosow", "a"),
-      defineVerb("korzystać", "używać czegoś lub czerpać z tego pożytek", "korzyst", "am", "korzysta", ""),
-      defineVerb("tracić", "przestawać coś mieć", "trac", "ą", "trac", "i"),
-      defineVerb("należeć", "być czyjąś własnością lub częścią czegoś", "należ", "y", "należ", "a", {
-        pastVowels: pastVowelsAie
-      }),
-      defineVerb("leżeć", "znajdować się w pozycji poziomej", "leż", "y", "leż", "a", {
-        pastVowels: pastVowelsAie
-      }),
-      defineVerb("ważyć", "mieć określoną masę", "waż", "y", "waż", "y"),
-      defineVerb("zależeć", "być uzależnionym od czegoś", "zależ", "y", "zależ", "a", {
-        pastVowels: pastVowelsAie
-      }),
-
-      defineVerb("rozumieć", "pojmować znaczenie lub sens czegoś", "rozum", "custom", "rozum", "", {
-        presentEndings: ["iem", "iesz", "ie", "iemy", "iecie", "ieją"],
-        pastVowels: pastVowelsIaIe
-      }),
-      defineVerb("umieć", "mieć określoną umiejętność", "um", "custom", "um", "", {
-        presentEndings: ["iem", "iesz", "ie", "iemy", "iecie", "ieją"],
-        pastVowels: pastVowelsIaIe
-      }),
-      defineVerb("wiedzieć", "mieć informację lub wiedzę o czymś", "wi", "custom", "wiedz", "", {
-        presentEndings: ["em", "esz", "e", "emy", "ecie", "edzą"],
-        pastVowels: pastVowelsIaIe
-      })
-    ];
-
-    const tenses = [
-      { key: "present", label: "Czas teraźniejszy", instructions: "Wpisz końcówkę czasu teraźniejszego po podanym temacie czasownika." },
-      { key: "past", label: "Czas przeszły", instructions: "Wpisz całą zmienną część formy, także samogłoskę. Uzupełnij pole po podanym początku czasownika." },
-      { key: "future", label: "Czas przyszły", instructions: "Uzupełnij formę czasownika posiłkowego „być”. Po luce znajduje się bezokolicznik." }
-    ];
-    const presentPronouns = ["ja", "ty", "on / ona / ono", "my", "wy", "oni / one"];
-    const pastForms = [
-      { pronoun: "ja (rodzaj męski)", ending: "łem" },
-      { pronoun: "ja (rodzaj żeński)", ending: "łam" },
-      { pronoun: "ty (rodzaj męski)", ending: "łeś" },
-      { pronoun: "ty (rodzaj żeński)", ending: "łaś" },
-      { pronoun: "on", ending: "ł" },
-      { pronoun: "ona", ending: "ła" },
-      { pronoun: "ono", ending: "ło" },
-      { pronoun: "my (rodzaj męskoosobowy)", ending: "liśmy" },
-      { pronoun: "my (rodzaj niemęskoosobowy)", ending: "łyśmy" },
-      { pronoun: "wy (rodzaj męskoosobowy)", ending: "liście" },
-      { pronoun: "wy (rodzaj niemęskoosobowy)", ending: "łyście" },
-      { pronoun: "oni", ending: "li" },
-      { pronoun: "one", ending: "ły" }
-    ];
-    const futurePronouns = ["ja", "ty", "on / ona / ono", "my", "wy", "oni / one"];
-    const futureEndings = ["ę", "ziesz", "zie", "ziemy", "ziecie", "ą"];
-    const form = document.querySelector("#exercise-form");
-    const rows = document.querySelector("#answer-rows");
-    const summary = document.querySelector("#summary");
-    const checkButton = form.querySelector(".check-button");
-    let exerciseDeck = [];
-    let round = 0;
-    let activeExercise;
-    let hasChecked = false;
-
-    function shuffle(items) {
-      for (let index = items.length - 1; index > 0; index -= 1) {
-        const swapIndex = Math.floor(Math.random() * (index + 1));
-        [items[index], items[swapIndex]] = [items[swapIndex], items[index]];
-      }
-      return items;
-    }
-
-    function createExerciseDeck() {
-      exerciseDeck = shuffle(verbs.flatMap((verb, verbIndex) =>
-        tenses.map((tense, tenseIndex) => ({ verbIndex, tenseIndex }))
-      ));
-      round += 1;
-    }
-
-    function getRows(verb, tense) {
-      if (tense.key === "present") {
-        return presentPronouns.map((pronoun, index) => ({
-          pronoun,
-          stem: verb.presentStems ? verb.presentStems[index] : verb.presentStem,
-          ending: verb.presentEndings[index],
-          suffix: verb.particle || ""
-        }));
-      }
-
-      if (tense.key === "past") {
-        return pastForms.map((item, index) => ({
-          ...item,
-          stem: verb.pastStems ? verb.pastStems[index] : verb.pastRoot,
-          ending: `${verb.pastVowels ? verb.pastVowels[index] : verb.pastVowel}${item.ending}`,
-          suffix: verb.particle || ""
-        }));
-      }
-
-      return futurePronouns.map((pronoun, index) => ({
-        pronoun,
-        stem: "będ",
-        ending: futureEndings[index],
-        suffix: verb.futureInfinitive === ""
-          ? ""
-          : ` ${verb.futureInfinitive || verb.infinitive}`
-      }));
-    }
-
-    function renderExercise() {
-      if (exerciseDeck.length === 0) createExerciseDeck();
-      activeExercise = exerciseDeck.pop();
-      hasChecked = false;
-      const verb = verbs[activeExercise.verbIndex];
-      const tense = tenses[activeExercise.tenseIndex];
-      const exerciseRows = getRows(verb, tense);
-      document.querySelector("#verb-name").textContent = verb.infinitive;
-      document.querySelector("#verb-meaning").textContent = verb.meaning;
-      document.querySelector("#tense-name").textContent = tense.label;
-      document.querySelector("#tense-eyebrow").textContent = `Polski · ${tense.label.toLowerCase()}`;
-      document.querySelector("#instructions").textContent = tense.instructions;
-      document.querySelector("#round-status").textContent =
-        `Runda ${round} · pozostało ${exerciseDeck.length} zestawów`;
-      summary.textContent = "";
-      summary.className = "summary";
-      checkButton.textContent = "Sprawdź odpowiedzi";
-
-      rows.replaceChildren();
-      exerciseRows.forEach((item, index) => {
-        const row = document.createElement("div");
-        row.className = "row";
-        row.dataset.index = index;
-        row.innerHTML = `
-          <span class="pronoun">${item.pronoun}</span>
-          <label class="answer">
-            <span class="stem">${item.stem}-</span>
-            <input class="ending" type="text" autocomplete="off" autocapitalize="off"
-              spellcheck="false" aria-label="${item.pronoun}: wpisz końcówkę" data-index="${index}">
-            ${item.suffix ? `<span class="suffix">${item.suffix}</span>` : ""}
-          </label>
-          <span class="row-result" aria-live="polite"></span>
-        `;
-        rows.append(row);
-      });
-    }
-
-    function checkAnswers() {
-      const verb = verbs[activeExercise.verbIndex];
-      const tense = tenses[activeExercise.tenseIndex];
-      const exerciseRows = getRows(verb, tense);
-      let correctCount = 0;
-
-      rows.querySelectorAll(".row").forEach((row, index) => {
-        const input = row.querySelector("input");
-        const result = row.querySelector(".row-result");
-        const answer = input.value.trim().toLocaleLowerCase("pl");
-        const isCorrect = answer === exerciseRows[index].ending;
-        row.classList.toggle("correct", isCorrect);
-        row.classList.toggle("incorrect", !isCorrect);
-        result.textContent = isCorrect
-          ? "Poprawnie"
-          : `Poprawna forma: ${exerciseRows[index].stem}${exerciseRows[index].ending}${exerciseRows[index].suffix || ""}`;
-        if (isCorrect) correctCount += 1;
-      });
-
-      const allCorrect = correctCount === exerciseRows.length;
-      summary.textContent = allCorrect
-        ? "Świetnie! Wszystkie odpowiedzi są poprawne."
-        : `Poprawne odpowiedzi: ${correctCount} z ${exerciseRows.length}. Sprawdź zaznaczone formy.`;
-      summary.classList.add(allCorrect ? "success" : "needs-work");
-      hasChecked = true;
-      checkButton.textContent = "Następne ćwiczenie";
-    }
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (hasChecked) {
-        renderExercise();
-        return;
-      }
-      checkAnswers();
-    });
-
-    document.querySelector("#clear-button").addEventListener("click", () => {
-      if (hasChecked) {
-        renderExercise();
-      } else {
-        form.reset();
-        rows.querySelectorAll(".row").forEach((row) => {
-          row.classList.remove("correct", "incorrect");
-          row.querySelector(".row-result").textContent = "";
-        });
-        summary.textContent = "";
-        summary.className = "summary";
-      }
-      rows.querySelector("input").focus();
-    });
-
-    renderExercise();
-  </script>
 </body>
 </html>
