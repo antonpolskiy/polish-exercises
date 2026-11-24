@@ -1,1 +1,0 @@
-# polish-exercises.github.io

@@ -397,7 +397,7 @@
 
     const verbs = [
       defineVerb("czytać", "odczytywać tekst", "czyt", "am", "czyta", ""),
-      defineVerb("mówić", "porozumiewać się za pomocą słów", "mów", "i", "mów", "i"),
+      defineVerb("mówić", "porozumiewać się za pomocą słów", "mów", "ię", "mów", "i"),
       defineVerb("robić", "wykonywać lub tworzyć", "rob", "ię", "rob", "i"),
       defineVerb("pracować", "wykonywać pracę", "pracuj", "uj", "pracow", "a"),
       defineVerb("być", "istnieć lub znajdować się", "jest", "custom", "by", "", {
@@ -439,10 +439,10 @@
       defineVerb("wybierać", "decydować się na jedną z możliwości", "wybier", "am", "wybiera", ""),
       defineVerb("odpowiadać", "udzielać odpowiedzi", "odpowiad", "am", "odpowiada", ""),
       defineVerb("opowiadać", "przedstawiać wydarzenia słowami", "opowiad", "am", "opowiada", ""),
-      defineVerb("rozmawiać", "prowadzić rozmowę", "rozmaw", "am", "rozmaw", "ia", {
+      defineVerb("rozmawiać", "prowadzić rozmowę", "rozmawi", "am", "rozmaw", "ia", {
         pastVowels: Array(13).fill("ia")
       }),
-      defineVerb("zamawiać", "prosić o przygotowanie lub dostarczenie czegoś", "zamaw", "am", "zamawia", ""),
+      defineVerb("zamawiać", "prosić o przygotowanie lub dostarczenie czegoś", "zamawi", "am", "zamawia", ""),
       defineVerb("odwiedzać", "przychodzić do kogoś z wizytą", "odwiedz", "am", "odwiedza", ""),
       defineVerb("sprawdzać", "kontrolować poprawność lub stan czegoś", "sprawdz", "am", "sprawdza", ""),
       defineVerb("otwierać", "powodować, że coś przestaje być zamknięte", "otwier", "am", "otwiera", ""),
@@ -452,10 +452,10 @@
       defineVerb("zapominać", "przestawać pamiętać o czymś", "zapomin", "am", "zapomina", ""),
       defineVerb("przypominać", "przywoływać coś w pamięci", "przypomin", "am", "przypomina", ""),
       defineVerb("ubierać", "zakładać ubranie sobie lub komuś", "ubier", "am", "ubiera", ""),
-      defineVerb("wymieniać", "zastępować jedną rzecz inną", "wymien", "am", "wymienia", ""),
+      defineVerb("wymieniać", "zastępować jedną rzecz inną", "wymieni", "am", "wymienia", ""),
       defineVerb("nazywać się", "mieć określone imię lub nazwę", "nazyw", "am", "nazywa", "", { particle: " się" }),
       defineVerb("spotykać się", "spędzać czas z innymi osobami", "spotyk", "am", "spotyka", "", { particle: " się" }),
-      defineVerb("zostawiać", "pozostawiać coś w jakimś miejscu", "zostaw", "am", "zostawia", ""),
+      defineVerb("zostawiać", "pozostawiać coś w jakimś miejscu", "zostawi", "am", "zostawia", ""),
       defineVerb("wyglądać", "mieć określony wygląd", "wygląd", "am", "wygląda", ""),
       defineVerb("pisać", "zapisywać słowa lub tekst", "pisz", "sz", "pisa", ""),
       defineVerb("lubić", "odczuwać sympatię do kogoś lub czegoś", "lub", "ię", "lub", "i"),
@@ -470,8 +470,8 @@
       defineVerb("liczyć", "ustalać liczbę lub wykonywać obliczenia", "licz", "y", "licz", "y"),
       defineVerb("ćwiczyć", "trenować lub powtarzać umiejętność", "ćwicz", "y", "ćwicz", "y"),
       defineVerb("tłumaczyć", "przekładać tekst na inny język", "tłumacz", "y", "tłumacz", "y"),
-      defineVerb("myśleć", "używać umysłu lub mieć opinię", "myśl", "ą", "myśl", "ia", {
-        pastVowels: pastVowelsIaIe
+      defineVerb("myśleć", "używać umysłu lub mieć opinię", "myśl", "ą", "myśl", "a", {
+        pastVowels: pastVowelsAie
       }),
       defineVerb("widzieć", "odbierać obrazy za pomocą wzroku", "widz", "ą", "widz", "ia", {
         pastVowels: pastVowelsIaIe
@@ -482,7 +482,7 @@
       defineVerb("prosić", "zwracać się do kogoś z prośbą", "pros", "ą", "pros", "i", {
         presentStems: ["prosz", "pros", "pros", "pros", "pros", "prosz"]
       }),
-      defineVerb("wierzyć", "uważać coś za prawdziwe", "wierz", "y", "wier", "y"),
+      defineVerb("wierzyć", "uważać coś za prawdziwe", "wierz", "y", "wier", "zy"),
       defineVerb("cieszyć się", "odczuwać radość", "ciesz", "y", "ciesz", "y", { particle: " się" }),
       defineVerb("uczyć się", "zdobywać wiedzę lub umiejętności", "ucz", "y", "ucz", "y", { particle: " się" }),
       defineVerb("tłumaczyć się", "wyjaśniać swoje zachowanie", "tłumacz", "y", "tłumacz", "y", { particle: " się" }),
@@ -499,7 +499,12 @@
       defineVerb("organizować", "planować i przygotowywać wydarzenie", "organizuj", "uj", "organizow", "a"),
       defineVerb("podróżować", "przemieszczać się na dalsze odległości", "podróżuj", "uj", "podróżow", "a"),
       defineVerb("studiować", "uczyć się na uczelni wyższej", "studiuj", "uj", "studiow", "a"),
-      defineVerb("rezerwować", "wcześniej zapewniać sobie miejsce lub usługę", "rezerwuj", "uj", "rezerw", "a"),
+      defineVerb("rezerwować", "wcześniej zapewniać sobie miejsce lub usługę", "rezerwuj", "uj", "rezerw", "owa", {
+        pastAspectPair: {
+          perfective: { infinitive: "zarezerwować", pastRoot: "zarezerw", pastVowel: "owa" },
+          context: "pokój w hotelu na cały tydzień"
+        }
+      }),
       defineVerb("decydować", "wybierać jedną z możliwości", "decyduj", "uj", "decydow", "a"),
       defineVerb("dziękować", "wyrażać wdzięczność", "dziękuj", "uj", "dziękow", "a"),
       defineVerb("trenować", "regularnie ćwiczyć sport lub umiejętność", "trenuj", "uj", "trenow", "a"),
@@ -536,7 +541,7 @@
       defineVerb("spędzać", "poświęcać czas na jakąś czynność", "spędz", "am", "spędza", ""),
       defineVerb("zachowywać", "postępować w określony sposób lub coś zatrzymywać", "zachowuj", "uj", "zachowyw", "a"),
       defineVerb("rozwijać", "powiększać lub doskonalić coś", "rozwij", "am", "rozwija", ""),
-      defineVerb("naprawiać", "przywracać coś do dobrego stanu", "napraw", "am", "naprawia", ""),
+      defineVerb("naprawiać", "przywracać coś do dobrego stanu", "naprawi", "am", "naprawia", ""),
       defineVerb("pokazywać", "sprawiać, że ktoś coś widzi", "pokazuj", "uj", "pokazyw", "a"),
       defineVerb("stosować", "używać określonej metody lub zasady", "stosuj", "uj", "stosow", "a"),
       defineVerb("korzystać", "używać czegoś lub czerpać z tego pożytek", "korzyst", "am", "korzysta", ""),
@@ -655,11 +660,24 @@
       }));
     }
 
+    function getExerciseVerb(verb, tense) {
+      if (level !== "hard" || tense.key !== "past" || !verb.pastAspectPair) return verb;
+      return {
+        ...verb,
+        infinitive: verb.pastAspectPair.perfective.infinitive,
+        pastRoot: verb.pastAspectPair.perfective.pastRoot,
+        pastVowel: verb.pastAspectPair.perfective.pastVowel
+      };
+    }
+
     function createSentence(verb, tense, rowIndex) {
       if (tense.key === "present") {
         return `Codziennie ${presentSentenceSubjects[rowIndex]} ___ (${verb.infinitive}).`;
       }
       if (tense.key === "past") {
+        if (verb.pastAspectPair) {
+          return `${pastSentenceSubjects[rowIndex]} wczoraj ___ ${verb.pastAspectPair.context} (${verb.infinitive} / ${verb.pastAspectPair.perfective.infinitive}).`;
+        }
         return `${pastSentenceSubjects[rowIndex]} wczoraj ___ (${verb.infinitive}).`;
       }
       return `Jutro ${futureSentenceSubjects[rowIndex]} ___ (${verb.infinitive}).`;
@@ -675,7 +693,8 @@
       hasChecked = false;
       const verb = verbs[activeExercise.verbIndex];
       const tense = tenses[activeExercise.tenseIndex];
-      const exerciseRows = getRows(verb, tense);
+      const exerciseVerb = getExerciseVerb(verb, tense);
+      const exerciseRows = getRows(exerciseVerb, tense);
       const item = exerciseRows[activeExercise.rowIndex];
       const isEasy = level === "easy";
       verbCard.hidden = !isEasy;
@@ -733,7 +752,8 @@
     function checkAnswers() {
       const verb = verbs[activeExercise.verbIndex];
       const tense = tenses[activeExercise.tenseIndex];
-      const item = getRows(verb, tense)[activeExercise.rowIndex];
+      const exerciseVerb = getExerciseVerb(verb, tense);
+      const item = getRows(exerciseVerb, tense)[activeExercise.rowIndex];
       const row = rows.querySelector(".row");
       const answer = row.querySelector("input").value.trim().toLocaleLowerCase("pl");
       const expected = level === "easy" ? item.ending : getFullForm(item);
