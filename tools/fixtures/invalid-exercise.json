@@ -1,0 +1,13 @@
+{
+  "id": "broken-exercise",
+  "level": "B3",
+  "topic": "verb.typo",
+  "type": "fill",
+  "prompt": "Ona wczoraj ___ (rezerwować).",
+  "answers": [],
+  "accept_variants": [],
+  "hint": "Czas przeszły.",
+  "cheatsheet_id": "verb-past",
+  "difficulty": 0,
+  "status": "unknown"
+}

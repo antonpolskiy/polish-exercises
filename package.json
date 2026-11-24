@@ -1,0 +1,22 @@
+{
+  "name": "polish-exercises",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=23.6.0"
+  },
+  "scripts": {
+    "validate": "node tools/validate.ts",
+    "import:exercises": "node tools/import-exercises.ts",
+    "build:core": "tsc --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck --declaration --rootDir core --outDir core/build core/types.ts core/storage.ts core/check.ts core/rounds.ts core/progress.ts && tsc --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck --rootDir . --outDir . storage.ts",
+    "test": "npm run build:core && node --test core/tests/check.test.ts core/tests/rounds.test.ts core/tests/progress.test.ts core/tests/storage.test.ts cheatsheet-content.test.js",
+    "typecheck": "tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck --allowImportingTsExtensions tools/validate.ts tools/import-exercises.ts core/types.ts core/storage.ts core/check.ts core/rounds.ts core/progress.ts core/tests/check.test.ts core/tests/rounds.test.ts core/tests/progress.test.ts core/tests/storage.test.ts storage.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^5.9.3"
+  }
+}

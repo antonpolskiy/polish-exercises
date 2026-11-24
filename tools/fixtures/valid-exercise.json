@@ -1,0 +1,23 @@
+{
+  "id": "verb-past-ratowac-ty-m-001",
+  "level": "B1",
+  "topic": "verb.past",
+  "type": "fill_full_form",
+  "prompt": "Ty (mężczyzna) wczoraj ____ (ratować).",
+  "answers": ["ratowałeś"],
+  "accept_variants": [],
+  "hint": "Czas przeszły, 2. os. lp., rodzaj męski.",
+  "explanation": "ratować → ratowa-ł-eś",
+  "cheatsheet_id": "verb-past",
+  "difficulty": 2,
+  "status": "ok",
+  "presentation": {
+    "modes": ["easy", "hard"],
+    "verb": "ratować",
+    "meaning": "chronić kogoś przed niebezpieczeństwem",
+    "tense": "past",
+    "subject": "Ty (mężczyzna)",
+    "prefix": "ratowa",
+    "suffix": ""
+  }
+}

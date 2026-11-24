@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polish-exercises.github.io/schema/exercise.schema.json",
+  "title": "Polish exercise",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "level",
+    "topic",
+    "type",
+    "prompt",
+    "answers",
+    "accept_variants",
+    "hint",
+    "explanation",
+    "cheatsheet_id",
+    "difficulty",
+    "status",
+    "presentation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "level": {
+      "enum": ["A1", "A2", "B1", "B2", "unsorted"]
+    },
+    "topic": {
+      "enum": [
+        "unsorted",
+        "verb.present",
+        "verb.past",
+        "verb.future",
+        "verb.aspect",
+        "verb.aspect.context",
+        "verb.conditional",
+        "verb.movement",
+        "verb.reflexive",
+        "verb.modal",
+        "verb.imperative",
+        "verb.passive",
+        "verb.prefix",
+        "verb.regency",
+        "noun.gender",
+        "noun.gender.plural",
+        "noun.number",
+        "noun.case.nominative",
+        "noun.case.accusative",
+        "noun.case.accusative.animacy",
+        "noun.case.genitive",
+        "noun.case.locative",
+        "noun.case.instrumental",
+        "noun.case.dative",
+        "noun.case.vocative",
+        "noun.case.plural",
+        "noun.case.animacy",
+        "adjective.agreement",
+        "adjective.comparison",
+        "pronoun.possessive",
+        "pronoun.demonstrative",
+        "pronoun.relative",
+        "negation",
+        "question",
+        "numeral",
+        "numeral.collective",
+        "numeral.fractional",
+        "numeral.ordinal",
+        "participle.adjective",
+        "participle.adverb",
+        "speech.indirect",
+        "sentence.conditional",
+        "word_formation",
+        "conjunction",
+        "exam.b1",
+        "exam.b2"
+      ]
+    },
+    "type": {
+      "enum": [
+        "fill_full_form",
+        "choose_option",
+        "fix_error",
+        "transform_sentence",
+        "choose_aspect"
+      ]
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "answers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "accept_variants": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "hint": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "explanation": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "cheatsheet_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "status": {
+      "enum": ["ok", "needs_review", "rejected"]
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["modes", "verb", "meaning", "tense", "subject", "prefix", "suffix"],
+      "properties": {
+        "modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["easy", "hard"]
+          }
+        },
+        "verb": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "tense": {
+          "enum": ["present", "past", "future"]
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "aspect": {
+          "enum": ["imperfective", "perfective"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,366 @@
+[
+  {
+    "id": "verb-zarezerwowac-past-context-01",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ja (mężczyzna) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałem"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ja (rodzaj męski)).",
+    "explanation": "Forma: zarezerw + owałem = zarezerwowałem.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ja (rodzaj męski)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-02",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ja (kobieta) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałam"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ja (rodzaj żeński)).",
+    "explanation": "Forma: zarezerw + owałam = zarezerwowałam.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ja (rodzaj żeński)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-03",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ty (mężczyzna) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałeś"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ty (rodzaj męski)).",
+    "explanation": "Forma: zarezerw + owałeś = zarezerwowałeś.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ty (rodzaj męski)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-04",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ty (kobieta) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałaś"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ty (rodzaj żeński)).",
+    "explanation": "Forma: zarezerw + owałaś = zarezerwowałaś.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ty (rodzaj żeński)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-05",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "On wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwował"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (on).",
+    "explanation": "Forma: zarezerw + ował = zarezerwował.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "on",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-06",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ona wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowała"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ona).",
+    "explanation": "Forma: zarezerw + owała = zarezerwowała.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ona",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-07",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Ono wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowało"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (ono).",
+    "explanation": "Forma: zarezerw + owało = zarezerwowało.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "ono",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-08",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "My (grupa męskoosobowa) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowaliśmy"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (my (rodzaj męskoosobowy)).",
+    "explanation": "Forma: zarezerw + owaliśmy = zarezerwowaliśmy.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "my (rodzaj męskoosobowy)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-09",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "My (grupa niemęskoosobowa) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałyśmy"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (my (rodzaj niemęskoosobowy)).",
+    "explanation": "Forma: zarezerw + owałyśmy = zarezerwowałyśmy.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "my (rodzaj niemęskoosobowy)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-10",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Wy (grupa męskoosobowa) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowaliście"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (wy (rodzaj męskoosobowy)).",
+    "explanation": "Forma: zarezerw + owaliście = zarezerwowaliście.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "wy (rodzaj męskoosobowy)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-11",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Wy (grupa niemęskoosobowa) wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowałyście"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (wy (rodzaj niemęskoosobowy)).",
+    "explanation": "Forma: zarezerw + owałyście = zarezerwowałyście.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "wy (rodzaj niemęskoosobowy)",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-12",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "Oni wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowali"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (oni).",
+    "explanation": "Forma: zarezerw + owali = zarezerwowali.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "oni",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  },
+  {
+    "id": "verb-zarezerwowac-past-context-13",
+    "level": "unsorted",
+    "topic": "verb.aspect.context",
+    "type": "choose_aspect",
+    "prompt": "One wczoraj ___ pokój w hotelu na cały tydzień (rezerwować / zarezerwować).",
+    "answers": [
+      "zarezerwowały"
+    ],
+    "accept_variants": [],
+    "hint": "Czynność jest zakończona: wybierz aspekt dokonany i dopasuj formę do podmiotu (one).",
+    "explanation": "Forma: zarezerw + owały = zarezerwowały.",
+    "cheatsheet_id": "verb-aspect-context",
+    "difficulty": 2,
+    "status": "needs_review",
+    "presentation": {
+      "modes": [
+        "hard"
+      ],
+      "verb": "zarezerwować",
+      "meaning": "wcześniej zapewniać sobie miejsce lub usługę",
+      "tense": "past",
+      "subject": "one",
+      "prefix": "zarezerw",
+      "suffix": "",
+      "aspect": "perfective"
+    }
+  }
+]

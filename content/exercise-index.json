@@ -1,0 +1,8 @@
+{
+  "files": [
+    "exercises/unsorted/verb.aspect.context.json",
+    "exercises/unsorted/verb.future.json",
+    "exercises/unsorted/verb.past.json",
+    "exercises/unsorted/verb.present.json"
+  ]
+}
